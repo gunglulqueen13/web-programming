@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Вход</title>
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}regestration_form.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <a class="logo" href="/">Мой блог</a>
+            <a class="link" href="/articles/">Все статьи</a>
+            <a class="link" href="/regestration">Регистрация</a>
+        </div>
+    </header>
+    <div class="form-container">
+        <h1>Вход</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="username">Имя пользователя</label>
+            <input type="text" name="username" required>
+            <label for="password">Пароль</label>
+            <input type="password" name="password" required>
+            <input type="submit" value="Войти">
+        </form>
+        {% if errors %}
+            <p class="error">{{ errors }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>

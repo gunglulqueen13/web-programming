@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Архив статей</title>
+        <link rel="stylesheet" href="{{STATIC_URL}}archive.css">
+        <link rel="stylesheet" href="{{STATIC_URL}}fold-post.css">
+	</head>
+    <body>
+        <div class="header">
+            <img class="article=image" src="{{STATIC_URL}}1.png"/>
+            <a href='/article/new'>Новая статья</a>
+            <a href='/logout'>Выйти из аккаунта</a>
+        </div>
+        <div class="archive">
+            {% for post in posts %}
+            <div class="one-post">
+                <h2 class="post-title">
+                    <a class="link" href="http://127.0.0.1:8000/articles/{{post.id}}">{{post.title}}</a>
+                    <button class="fold-button">Свернуть</button>
+                </h2>
+                <div class="article-info">
+                    <div class="article-row">
+                        <h2 class="article-author">
+                            {{post.author.username}}
+                        </h2>
+                        <div class="article-created-data">{{post.created_date}}</div>
+                    </div>
+                </div>
+                <p class="article-text">{{ post.get_excerpt }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <script src="{{ STATIC_URL }}scripts/helloworld.js"></script>
+        <script src="{{ STATIC_URL }}scripts/fold-post.js"></script>
+    </body>
+</html>

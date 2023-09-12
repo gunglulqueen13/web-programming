@@ -1,0 +1,64 @@
+.one-post {
+    position: relative;
+}
+
+.one-post.folded .article-info {
+    display: none;
+}
+
+.one-post.folded .article-text {
+    display: none;
+}
+
+.one-post-shadow {
+    opacity: 0;
+    top: 0;
+    position: absolute;
+    height: 100%;
+    width: 1008px;
+    background: red;
+    z-index: -1;
+    cursor: pointer;
+}
+
+.icons-for-parallax {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    height: 530px;
+    position: relative;
+}
+
+.icons-for-parallax img {
+    /* здесь находятся общие для всех картинок стили */
+    position: absolute;
+    top: 0;
+
+}
+
+.icon-for-parallax-first {
+    width: 200px;
+    margin-top: 200px;
+    margin-left: 40px;
+    z-index: 3;
+
+    /* эта картинка на переднем плане, у неё больший z-index
+*/
+}
+
+.icon-for-parallax-second {
+    width: 200px;
+    /* уменьшить ширину для картинки, чтобы визуально */
+    /* находилась дальше для пользователя */
+    margin-top: 100px;
+    /* эта картинка слегка смещена вправо и вниз */
+    margin-left: 80px;
+    /* за счет левой и верхней границ */
+    z-index: 2;
+}
+
+.icon-for-parallax-third {
+    width: 200px;
+    margin-left: 160px;
+    z-index: 1;
+    /* эта картинка на заднем плане, у неё меньший z-index */
+}

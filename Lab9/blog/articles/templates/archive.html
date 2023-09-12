@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Архив статей</title>
+        <link rel="stylesheet" href="{{STATIC_URL}}archive.css">
+        <link rel="stylesheet" href="{{STATIC_URL}}fold-post.css">
+	</head>
+    <body>
+        <div class="header">
+            <div class="main_information">
+                <img class="article-image" src="{{STATIC_URL}}images/1.png"/>
+                <div class="header-text-area">    
+                    <a href='/article/new'>Новая статья</a>
+                    <a href='/logout'>Выйти из аккаунта</a>
+                </div>
+            </div>
+            <img class="logo" src="{{STATIC_URL}}images/1.png"/>
+            <div class="icons-for-parallax">
+                <img class="icon-for-parallax-first"
+                src="{{ STATIC_URL }}images/article-icon-for-parallax-1.png">
+                <img class="icon-for-parallax-second" src="{{ STATIC_URL }}images/article-icon-for-parallax-2.png">
+                <img class="icon-for-parallax-third"
+                src="{{ STATIC_URL }}images/article-icon-for-parallax-3.png">
+            </div>
+        </div>
+        <div class="archive">
+            {% for post in posts %}
+            <div class="one-post">
+                <div class="article-title-wrapper">
+                    <h2 class="post-title">
+                        <a href="/article/{{ post.id }}">{{ post.title }}</a>
+                    </h2>
+                    <button class="fold-button">Свернуть</button>
+                </div>
+                <div class="article-info">
+                    <div class="article-author">{{ post.author.username }}</div>
+                    <div class="article-created-date">{{ post.created_date }}</div>
+                </div>
+                <p class="article-text">{{ post.get_excerpt }}</p>
+                <div class="one-post-shadow"></div>
+            </div>
+            {% endfor %}
+        </div>
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.js"
+            integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+            crossorigin="anonymous">
+        </script>
+        <script src="{{ STATIC_URL }}scripts/helloworld.js"></script>
+        <script src="{{ STATIC_URL }}scripts/fold-post.js"></script>
+        <script src="{{ STATIC_URL }}scripts/highlight-post.js"></script>
+        <script src="{{ STATIC_URL }}scripts/parallax.js"></script>
+    </body>
+</html>

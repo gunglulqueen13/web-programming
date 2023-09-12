@@ -1,0 +1,22 @@
+.one-post {
+    position: relative;
+}
+
+.one-post.folded .article-info {
+    display: none;
+}
+
+.one-post.folded .article-text {
+    display: none;
+}
+
+.one-post-shadow {
+    opacity: 0;
+    top: 0;
+    position: absolute;
+    height: 100%;
+    width: 1008px;
+    background: red;
+    z-index: -1;
+    cursor: pointer;
+}
